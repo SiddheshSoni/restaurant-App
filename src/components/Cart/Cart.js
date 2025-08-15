@@ -1,11 +1,13 @@
 import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
-
-import React from 'react'
+import React, { useContext } from 'react'
+import cartContext from "../../store/cartContext";
 
 const Cart = (props) => {
+    const CartCtxt = useContext(cartContext);
+
     const cartItems =<ul className={classes['cart-items']}>
-       { [{id:'c1', name: 'sushi', amount: '2', price: 12.99}].map((item) => (<li>{item.name}</li>))}</ul>;
+       { CartCtxt.items.map((item) => (<li key={item.id}> Name:{item.name}  Price:${item.price}  Quantity:{item.quantity}</li>))}</ul>;
 
     return (
         <Modal onCloseBtn={props.onCloseBtn}>
