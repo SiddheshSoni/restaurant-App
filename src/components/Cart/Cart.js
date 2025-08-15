@@ -9,12 +9,15 @@ const Cart = (props) => {
     const cartItems =<ul className={classes['cart-items']}>
        { CartCtxt.items.map((item) => (<li key={item.id}> Name:{item.name}  Price:${item.price}  Quantity:{item.quantity}</li>))}</ul>;
 
+    let totalAmount = 0;
+    CartCtxt.items.map((item) => totalAmount = totalAmount + (item.price*item.quantity));
+
     return (
         <Modal onCloseBtn={props.onCloseBtn}>
             {cartItems}
             <div className={classes.total}>
                 <span>Total Amount</span>
-                <span>23.22</span>
+                <span>{totalAmount}$</span>
             </div>
             <div className={classes.actions}>
                 <button className={classes['button--alt']} onClick={props.onCloseBtn}>Close</button>
