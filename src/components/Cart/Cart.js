@@ -7,13 +7,15 @@ const Cart = (props) => {
     const CartCtxt = useContext(cartContext);
 
     const cartItems =<ul className={classes['cart-items']}>
-       { CartCtxt.items.map((item) => (<li key={item.id}> Name:{item.name}  Price:${item.price}  Quantity:{item.quantity}</li>))}</ul>;
+        <li> <span>Name</span> <span>Price</span> <span>Quantity</span> </li>
+       { CartCtxt.items.map((item) => (<li key={item.id}> <span>{item.name}</span> <span>{item.price}</span> <span>{item.quantity}</span> </li>))}</ul>;
 
     let totalAmount = 0;
     CartCtxt.items.map((item) => totalAmount = totalAmount + (item.price*item.quantity));
 
     return (
         <Modal onCloseBtn={props.onCloseBtn}>
+
             {cartItems}
             <div className={classes.total}>
                 <span>Total Amount</span>
