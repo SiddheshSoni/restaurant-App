@@ -18,7 +18,19 @@ const CartProvider = (props)=>{
         })
         // console.log(CartContext.items);
     };
-    const removeItemFromCartHandler=(id)=>{};
+    const removeItemFromCartHandler=(id)=>{
+        setItems((prev)=>{
+            const index = prev.findIndex((elem) => id === elem.id); // findIndex returns -1 if dosen't exist
+            if(index !== -1){
+                const temp = [...prev];
+                temp[index] ={...temp[index], quantity:Number(temp[index].quantity)-Number(1)};
+                return temp;
+            }
+            else{
+                return; //if not found
+            }
+        })
+    };
 
     const CartContext={
         items:items,

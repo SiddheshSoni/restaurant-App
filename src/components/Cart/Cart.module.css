@@ -6,26 +6,6 @@
   overflow: auto;
   font-weight: bold;
 }
-.cart-items li {
-  display: flex;
-  gap: 16px;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.cart-items li span {
-  flex: 1;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.cart-items li:first-child {
-  font-weight: bold;
-  background: #f0f0f0;
-  border-bottom: 2px solid #ccc;
-}
 .total {
   display: flex;
   justify-content: space-between;
